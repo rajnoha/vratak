@@ -5,8 +5,6 @@ public class User {
 	String meno;
 	boolean active;
 	
-	
-	
 	public boolean isActive() {
 		return active;
 	}

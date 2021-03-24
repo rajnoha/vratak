@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ListView fx:id="userListView" layoutX="15.0" layoutY="85.0" prefHeight="300.0" prefWidth="571.0" />
+      <Label layoutX="30.0" layoutY="37.0" prefHeight="17.0" prefWidth="57.0" text="ID Cipu:" textAlignment="JUSTIFY" />
+      <Label layoutX="264.0" layoutY="37.0" text="Meno: " />
+      <TextField fx:id="chipIdTextField" layoutX="87.0" layoutY="33.0" />
+      <TextField fx:id="nameTextField" layoutX="316.0" layoutY="33.0" />
+      <Button fx:id="addButton" layoutX="508.0" layoutY="33.0" mnemonicParsing="false" text="Pridat" />
+   </children>
+</AnchorPane>
