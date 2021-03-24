@@ -20,9 +20,15 @@ public class App extends Application {
 //		AnchorPane rootPane = new AnchorPane();
 //		rootPane.getChildren().add(button);
 //		rootPane.setPrefSize(400, 300);
-		MainWindowController controller = new MainWindowController();
-		FXMLLoader fxmlLoader = new FXMLLoader( getClass().getResource("MainWindow.fxml"));
-				fxmlLoader.setController(controller);
+		
+//		MainWindowController controller = new MainWindowController();
+//		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainWindow.fxml"));
+//				fxmlLoader.setController(controller);
+				
+		EntranceController controller = new EntranceController();
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EntranceMain.fxml"));
+			fxmlLoader.setController(controller);
+			
 		Parent rootPane = fxmlLoader.load();		
 		Scene scene = new Scene(rootPane);
 		stage.setTitle("Hello World");

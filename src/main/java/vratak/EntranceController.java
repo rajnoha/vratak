@@ -36,10 +36,10 @@ public class EntranceController {
 	    @FXML
 	    private Button addButton;
 	    
-	    private UserFxModel editedUser = new UserFxModel();
-
 	    @FXML
 	    private ListView<User> usersListView;
+	    
+	    private UserFxModel editedUser = new UserFxModel();
 	    
 	    @FXML
 	    void initialize() {
