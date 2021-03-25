@@ -18,17 +18,19 @@ public class EntranceController {
 	//tu vytvorim instancnu premennu
 	private UserDao userDao  = new UserDao();
 	
-	public EntranceController() {
-		User u = new User();
-		u.setChipId("112345");
-		u.setMeno("Kamil");
-		userDao.addUser(u);
-		u = new User();
-		u.setChipId("985461");
-		u.setMeno("Vlado");
-		userDao.addUser(u);
-	}
-	
+//	public EntranceController() {
+//		User u = new User();
+//		u.setChipId("112345");
+//		u.setMeno("Kamil");
+//		userDao.addUser(u);
+//		u = new User();
+//		u.setChipId("985461");
+//		u.setMeno("Vlado");
+//		userDao.addUser(u);
+//	}
+	    @FXML
+	    private ListView<User> usersListView;
+	    
 	    @FXML
 	    private TextField chipIdTextField;
 
@@ -37,29 +39,39 @@ public class EntranceController {
 
 	    @FXML
 	    private Button addButton;
-	    
-	    @FXML
-	    private ListView<User> usersListView;
-	    
+	   	       
 	    private UserFxModel editedUser = new UserFxModel();
 	    
 	    @FXML
 	    void initialize() {
+	    	System.out.println("inicializujem");
 	    	
 			chipIdTextField.textProperty().bindBidirectional(editedUser.chipIdProperty());
-			nameTextField.textProperty().bindBidirectional(editedUser.nameProperty());
-			usersListView.setItems(FXCollections.observableArrayList(userDao.getAll()));
-			
-			addButton.setOnAction(new EventHandler<ActionEvent>() {
-				
-				@Override
-				public void handle(ActionEvent event) {
-					// ulozit noveho pouzivatela
-					userDao.addUser(editedUser.getUser());
-					usersListView.setItems(FXCollections.observableArrayList(userDao.getAll()));
-					//usersListView.getItems().add(editedUser.getUser());
-				}
-			});
-	    }
+			 nameTextField.textProperty().bindBidirectional(editedUser.nameProperty());
+			// usersListView.setItems(FXCollections.observableArrayList(userDao.getAll()));
 
+			 addButton.setOnAction(new EventHandler<ActionEvent>() {
+
+			 @Override
+			 public void handle(ActionEvent event) {
+			// ulozit noveho pouzivatela
+		    //System.out.println("Hura, podarilo sa");
+			 userDao.addUser(editedUser.getUser());
+			 
+			 System.out.println("Hura, podarilo sa1");
+			 usersListView.setItems(FXCollections.observableArrayList(userDao.getAll()));
+			 System.out.println("Hura, podarilo sa2");
+			 usersListView.getItems().add(editedUser.getUser());
+			 }
+
+//			addButton.setOnAction(new EventHandler<ActionEvent>() {
+//
+//				@Override
+//				public void handle(ActionEvent event) {
+//					System.out.println("Hura, podarilo sa");
+//					usersListView.getItems().add(editedUser.getUser());
+//				}
+
+		});
+		}
 }
