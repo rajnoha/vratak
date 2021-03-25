@@ -11,6 +11,8 @@ public class UserList {
 		if (user != null) {
 			users.add(user);
 			
+			//pridanie auto id, aby sa dal user identifikovat 
+			user.setId(++lastId);
 		}	
 	}
 

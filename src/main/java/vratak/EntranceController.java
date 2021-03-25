@@ -13,18 +13,20 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 public class EntranceController {
-
-	private List<User> users = new ArrayList<User>();
+     
+	//private List<User> users = new ArrayList<User>();
+	//tu vytvorim instancnu premennu
+	private UserDao userDao  = new UserDao();
 	
 	public EntranceController() {
 		User u = new User();
 		u.setChipId("112345");
 		u.setMeno("Kamil");
-		users.add(u);
+		userDao.addUser(u);
 		u = new User();
 		u.setChipId("985461");
 		u.setMeno("Vlado");
-		users.add(u);
+		userDao.addUser(u);
 	}
 	
 	    @FXML
@@ -46,14 +48,16 @@ public class EntranceController {
 	    	
 			chipIdTextField.textProperty().bindBidirectional(editedUser.chipIdProperty());
 			nameTextField.textProperty().bindBidirectional(editedUser.nameProperty());
-			usersListView.setItems(FXCollections.observableArrayList(users));
+			usersListView.setItems(FXCollections.observableArrayList(userDao.getAll()));
 			
 			addButton.setOnAction(new EventHandler<ActionEvent>() {
 				
 				@Override
 				public void handle(ActionEvent event) {
 					// ulozit noveho pouzivatela
-					usersListView.getItems().add(editedUser.getUser());
+					userDao.addUser(editedUser.getUser());
+					usersListView.setItems(FXCollections.observableArrayList(userDao.getAll()));
+					//usersListView.getItems().add(editedUser.getUser());
 				}
 			});
 	    }
