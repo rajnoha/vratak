@@ -1,10 +1,17 @@
 package vratak;
 
 public class User {
-	String chipId;
-	String meno;
-	boolean active;
-	
+	private Long id;
+	private String chipId;
+	private String meno;
+	private boolean active = true ;
+		
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public boolean isActive() {
 		return active;
 	}
@@ -22,6 +29,11 @@ public class User {
 	}
 	public void setMeno(String meno) {
 		this.meno = meno;
+	}
+	
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", chipId=" + chipId + ", meno=" + meno + ", active=" + active + "]";
 	}
 	
 }

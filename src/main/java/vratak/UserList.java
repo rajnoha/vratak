@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserList {
-	List<User> users = new ArrayList<User>();
+	private long lastId = 0;
+	private List<User> users = new ArrayList<User>();
 
 	public void addUser(User user) {
 		if (user != null) {
 			users.add(user);
-		}
+			
+		}	
 	}
 
 	public boolean validate(String chipId) {
